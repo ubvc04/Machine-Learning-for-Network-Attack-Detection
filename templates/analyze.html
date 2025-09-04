@@ -1,0 +1,376 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="fas fa-search"></i> Specific Model Analysis</h4>
+                <p class="mb-0 text-light">Select threat type, choose specific algorithm, and analyze your input</p>
+            </div>
+            <div class="card-body">
+                <form id="specificAnalysisForm">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="threatType" class="form-label">1. Select Threat Type:</label>
+                            <select class="form-select" id="threatType" required onchange="updateModelOptions()">
+                                <option value="">Choose threat type...</option>
+                                {% for threat_type in threat_types %}
+                                <option value="{{ threat_type }}">{{ threat_type|title }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="algorithmType" class="form-label">2. Select Algorithm:</label>
+                            <select class="form-select" id="algorithmType" required disabled>
+                                <option value="">First select threat type...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">3. Input Type:</label>
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="inputType" id="textInput" value="text" checked>
+                                <label class="btn btn-outline-primary" for="textInput">Text</label>
+                                
+                                <input type="radio" class="btn-check" name="inputType" id="numericInput" value="numeric">
+                                <label class="btn btn-outline-primary" for="numericInput">Numeric</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <label for="inputData" class="form-label">4. Enter Input Data:</label>
+                            <div class="input-group">
+                                <textarea class="form-control" id="inputData" rows="3" 
+                                    placeholder="Enter your input data here..." required></textarea>
+                                <button class="btn btn-primary" type="submit" id="analyzeBtn">
+                                    <i class="fas fa-search"></i> Analyze
+                                </button>
+                            </div>
+                            <div class="form-text" id="inputHelp">
+                                <span id="textHelp">Enter text data like emails, URLs, or log entries.</span>
+                                <span id="numericHelp" style="display:none;">Enter comma-separated numeric values (e.g., 192.168.1.1,80,TCP,1024,500).</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="resultsSection" style="display: none;">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-chart-bar"></i> Analysis Results</h5>
+            </div>
+            <div class="card-body">
+                <div id="analysisResults"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-lightbulb"></i> Sample Inputs</h5>
+            </div>
+            <div class="card-body">
+                <h6>Network Traffic Samples (Numeric):</h6>
+                <div class="mb-2">
+                    <button class="btn btn-outline-secondary btn-sm sample-btn" 
+                        data-threat="ddos" 
+                        data-algorithm="lr"
+                        data-type="numeric"
+                        data-input="192.168.1.100,80,1024,10000,0.5,0,0,1">
+                        DDoS Attack - Linear Regression
+                    </button>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-outline-secondary btn-sm sample-btn" 
+                        data-threat="port_scan" 
+                        data-algorithm="nb"
+                        data-type="numeric"
+                        data-input="10.0.0.1,22,64,0,0,1,0,1">
+                        Port Scan - Naive Bayes
+                    </button>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-outline-secondary btn-sm sample-btn" 
+                        data-threat="infiltration" 
+                        data-algorithm="rf"
+                        data-type="numeric"
+                        data-input="172.16.0.50,443,1500,500,2.5,0,1,0">
+                        Infiltration - Random Forest
+                    </button>
+                </div>
+                
+                <h6 class="mt-3">Text Samples:</h6>
+                <div class="mb-2">
+                    <button class="btn btn-outline-secondary btn-sm sample-btn" 
+                        data-threat="phishing" 
+                        data-algorithm="sgd"
+                        data-type="text"
+                        data-input="Urgent: Your account will be suspended. Click here: http://suspicious-link.com">
+                        Phishing - SGD
+                    </button>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-outline-secondary btn-sm sample-btn" 
+                        data-threat="web_attacks" 
+                        data-algorithm="lr"
+                        data-type="text"
+                        data-input="GET /admin?id=1' OR '1'='1 HTTP/1.1">
+                        SQL Injection - Linear Regression
+                    </button>
+                </div>
+                <div class="mb-2">
+                    <button class="btn btn-outline-secondary btn-sm sample-btn" 
+                        data-threat="malware" 
+                        data-algorithm="nb"
+                        data-type="text"
+                        data-input="malicious.exe CreateProcess RegSetValue suspicious_behavior">
+                        Malware Activity - Naive Bayes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-info-circle"></i> Model Information</h5>
+            </div>
+            <div class="card-body">
+                <h6>Available Algorithms:</h6>
+                <ul class="list-unstyled">
+                    <li><strong>LR</strong> - Linear Regression: Fast, interpretable</li>
+                    <li><strong>NB</strong> - Naive Bayes: Good for text classification</li>
+                    <li><strong>SGD</strong> - Stochastic Gradient Descent: Efficient for large datasets</li>
+                    <li><strong>RF</strong> - Random Forest: High accuracy, robust</li>
+                </ul>
+                
+                <h6 class="mt-3">Threat Types Coverage:</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <small class="text-muted">
+                            • Bot Attacks<br>
+                            • Brute Force<br>
+                            • DDoS Detection<br>
+                            • DDoS Friday<br>
+                            • DoS Attacks<br>
+                            • Infiltration
+                        </small>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-muted">
+                            • Malware<br>
+                            • Network Baseline<br>
+                            • Phishing<br>
+                            • Port Scan<br>
+                            • Web Attacks
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info mt-3">
+                    <small><i class="fas fa-info-circle"></i> 
+                    <strong>{{ threat_types|length }} threat types</strong> with 
+                    <strong>39 total models</strong> available for testing.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Store model mappings
+const threatModelMap = {{ threat_models|safe }};
+
+// Update algorithm options based on selected threat
+function updateModelOptions() {
+    const threatSelect = document.getElementById('threatType');
+    const algorithmSelect = document.getElementById('algorithmType');
+    const selectedThreat = threatSelect.value;
+    
+    // Clear existing options
+    algorithmSelect.innerHTML = '<option value="">Choose algorithm...</option>';
+    
+    if (selectedThreat && threatModelMap[selectedThreat]) {
+        algorithmSelect.disabled = false;
+        threatModelMap[selectedThreat].forEach(algorithm => {
+            const option = document.createElement('option');
+            option.value = algorithm.toLowerCase();
+            option.textContent = algorithm;
+            algorithmSelect.appendChild(option);
+        });
+    } else {
+        algorithmSelect.disabled = true;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('specificAnalysisForm');
+    const threatTypeSelect = document.getElementById('threatType');
+    const algorithmSelect = document.getElementById('algorithmType');
+    const inputDataArea = document.getElementById('inputData');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    const resultsSection = document.getElementById('resultsSection');
+    const analysisResults = document.getElementById('analysisResults');
+    
+    // Input type toggle
+    const textRadio = document.getElementById('textInput');
+    const numericRadio = document.getElementById('numericInput');
+    const textHelp = document.getElementById('textHelp');
+    const numericHelp = document.getElementById('numericHelp');
+    
+    textRadio.addEventListener('change', function() {
+        if (this.checked) {
+            textHelp.style.display = 'inline';
+            numericHelp.style.display = 'none';
+            inputDataArea.placeholder = 'Enter text data like emails, URLs, or log entries...';
+        }
+    });
+    
+    numericRadio.addEventListener('change', function() {
+        if (this.checked) {
+            textHelp.style.display = 'none';
+            numericHelp.style.display = 'inline';
+            inputDataArea.placeholder = 'Enter comma-separated numeric values (e.g., 192.168.1.1,80,TCP,1024,500)...';
+        }
+    });
+
+    // Sample button handlers
+    document.querySelectorAll('.sample-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            threatTypeSelect.value = this.dataset.threat;
+            updateModelOptions();
+            algorithmSelect.value = this.dataset.algorithm;
+            inputDataArea.value = this.dataset.input;
+            
+            // Set input type
+            if (this.dataset.type === 'numeric') {
+                numericRadio.checked = true;
+                numericRadio.dispatchEvent(new Event('change'));
+            } else {
+                textRadio.checked = true;
+                textRadio.dispatchEvent(new Event('change'));
+            }
+        });
+    });
+
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const threatType = threatTypeSelect.value;
+        const algorithm = algorithmSelect.value;
+        const inputText = inputDataArea.value.trim();
+        
+        if (!threatType || !algorithm || !inputText) {
+            showAlert('Please select threat type, algorithm, and enter input data.', 'warning');
+            return;
+        }
+        
+        // Show loading state
+        analyzeBtn.disabled = true;
+        analyzeBtn.innerHTML = '<div class="loading-spinner"></div> Analyzing...';
+        
+        // Make API request
+        fetch('/api/predict-specific/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                threat_type: threatType,
+                algorithm: algorithm,
+                input_text: inputText
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                displayResults(data);
+                resultsSection.style.display = 'block';
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                showAlert('Analysis failed: ' + (data.error || 'Unknown error'), 'danger');
+            }
+        })
+        .catch(error => {
+            showAlert('Error: ' + error.message, 'danger');
+        })
+        .finally(() => {
+            // Reset button state
+            analyzeBtn.disabled = false;
+            analyzeBtn.innerHTML = '<i class="fas fa-search"></i> Analyze';
+        });
+    });
+
+    function displayResults(data) {
+        const result = data.result;
+        const threatClass = result.is_threat ? 'danger' : 'success';
+        const iconClass = result.is_threat ? 'fas fa-exclamation-triangle' : 'fas fa-check-circle';
+        const statusText = result.is_threat ? 'THREAT DETECTED' : 'BENIGN';
+        
+        let html = `
+            <div class="alert alert-info">
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Threat Type:</strong> ${data.threat_type.replace(/_/g, ' ').toUpperCase()}<br>
+                        <strong>Algorithm:</strong> ${data.algorithm}
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Input:</strong> <code>${escapeHtml(data.input_text)}</code><br>
+                        <strong>Timestamp:</strong> ${new Date(data.timestamp).toLocaleString()}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card border-${threatClass}">
+                <div class="card-header bg-${threatClass} text-white">
+                    <h5 class="mb-0">
+                        <i class="${iconClass}"></i> ${data.algorithm} Model Result
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6>Prediction:</h6>
+                            <p class="h4">${result.prediction}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Confidence:</h6>
+                            <p class="h4">${result.confidence ? (result.confidence * 100).toFixed(1) + '%' : 'N/A'}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <span class="badge bg-${threatClass} fs-6 p-2">
+                                ${statusText}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        analysisResults.innerHTML = html;
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,16 @@
+{
+  "threat_type": "ddos",
+  "model_name": "nb",
+  "model_key": "ddos_nb",
+  "model_path": "models\\ddos_nb_model.joblib",
+  "vectorizer_path": "models\\ddos_nb_vectorizer.joblib",
+  "encoder_path": "models\\ddos_nb_encoder.joblib",
+  "accuracy": 1.0,
+  "training_time": 0.005281686782836914,
+  "feature_count": 39,
+  "training_samples": 12,
+  "classes": [
+    "benign",
+    "threat"
+  ]
+}

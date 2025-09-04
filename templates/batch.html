@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="fas fa-list"></i> Batch Threat Analysis</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle"></i>
+                    Enter multiple inputs (one per line) to test against all threat detection models simultaneously.
+                </div>
+                
+                <form id="batchForm">
+                    <div class="mb-3">
+                        <label for="batchInputs" class="form-label">Multiple Inputs (one per line):</label>
+                        <textarea class="form-control" id="batchInputs" rows="8" 
+                                  placeholder="Enter multiple inputs to analyze, one per line:&#10;&#10;Example:&#10;URGENT: Click here to verify your account&#10;Normal business email about meeting&#10;' OR 1=1 --&#10;High volume traffic from multiple sources" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fas fa-list"></i> Analyze All Inputs
+                    </button>
+                </form>
+                
+                <div id="batchLoading" class="loading">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Processing batch analysis...</span>
+                    </div>
+                    <p class="mt-2">Analyzing all inputs across all threat models...</p>
+                </div>
+                
+                <div id="batchResults" class="mt-4" style="display: none;">
+                    <h5><i class="fas fa-chart-bar"></i> Batch Analysis Results</h5>
+                    <div id="batchResultsContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('batchForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const batchInputs = document.getElementById('batchInputs').value;
+    const inputs = batchInputs.split('\n').filter(line => line.trim());
+    
+    if (inputs.length === 0) {
+        showAlert('Please enter at least one input to analyze.', 'warning');
+        return;
+    }
+    
+    if (inputs.length > 10) {
+        showAlert('Maximum 10 inputs allowed per batch analysis.', 'warning');
+        return;
+    }
+    
+    // Show loading
+    showLoading('batchLoading');
+    document.getElementById('batchResults').style.display = 'none';
+    
+    // Process each input
+    Promise.all(inputs.map(input => 
+        fetch('/api/predict-all/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                input_text: input.trim()
+            })
+        }).then(response => response.json())
+    ))
+    .then(results => {
+        hideLoading('batchLoading');
+        displayBatchResults(results, inputs);
+    })
+    .catch(error => {
+        hideLoading('batchLoading');
+        showAlert('Batch analysis failed: ' + error.message, 'danger');
+    });
+});
+
+function displayBatchResults(results, inputs) {
+    const resultsContent = document.getElementById('batchResultsContent');
+    let html = '';
+    
+    results.forEach((result, index) => {
+        if (result.success) {
+            html += `
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h6><i class="fas fa-file-text"></i> Input ${index + 1}: "${inputs[index]}"</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+            `;
+            
+            Object.entries(result.results).forEach(([threatType, models]) => {
+                const threatResults = models.filter(m => m.is_threat);
+                const alertClass = threatResults.length > 0 ? 'alert-warning' : 'alert-success';
+                const icon = threatResults.length > 0 ? 'fas fa-exclamation-triangle' : 'fas fa-check-circle';
+                
+                html += `
+                    <div class="col-md-4 mb-2">
+                        <div class="alert ${alertClass} mb-2 p-2">
+                            <small>
+                                <i class="${icon}"></i> <strong>${threatType.replace('_', ' ').toUpperCase()}</strong><br>
+                                ${threatResults.length > 0 ? 
+                                    `🚨 ${threatResults.length}/${models.length} models detected threat` : 
+                                    `✅ No threats detected`
+                                }
+                            </small>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += `
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            html += `
+                <div class="card mb-3">
+                    <div class="card-header bg-danger text-white">
+                        <h6><i class="fas fa-times"></i> Input ${index + 1}: Error</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-danger">
+                            Failed to analyze: "${inputs[index]}"<br>
+                            Error: ${result.error}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    });
+    
+    resultsContent.innerHTML = html;
+    document.getElementById('batchResults').style.display = 'block';
+}
+</script>
+{% endblock %}

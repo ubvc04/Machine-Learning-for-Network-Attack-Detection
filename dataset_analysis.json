@@ -1,0 +1,78 @@
+{
+  "phishing_spam": {
+    "file": "emails.csv",
+    "label_column": null,
+    "threat_types": [],
+    "path": "dataset\\emails.csv"
+  },
+  "Obfuscated-MalMem2022": {
+    "file": "Obfuscated-MalMem2022.csv",
+    "label_column": "Class",
+    "threat_types": [],
+    "path": "dataset\\Obfuscated-MalMem2022.csv"
+  },
+  "ddos": {
+    "file": "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    "label_column": null,
+    "threat_types": [],
+    "path": "dataset\\Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv"
+  },
+  "port_scan": {
+    "file": "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+    "label_column": null,
+    "threat_types": [],
+    "path": "dataset\\Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv"
+  },
+  "network_normal": {
+    "file": "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+    "label_column": null,
+    "threat_types": [],
+    "path": "dataset\\Friday-WorkingHours-Morning.pcap_ISCX.csv"
+  },
+  "network_baseline": {
+    "file": "Monday-WorkingHours.pcap_ISCX.csv",
+    "label_column": null,
+    "threat_types": [],
+    "path": "dataset\\Monday-WorkingHours.pcap_ISCX.csv"
+  },
+  "infiltration": {
+    "file": "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+    "label_column": null,
+    "threat_types": [],
+    "path": "dataset\\Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv"
+  },
+  "web_attacks": {
+    "file": "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    "label_column": null,
+    "threat_types": [],
+    "path": "dataset\\Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv"
+  },
+  "network_tuesday": {
+    "file": "Tuesday-WorkingHours.pcap_ISCX.csv",
+    "label_column": null,
+    "threat_types": [],
+    "path": "dataset\\Tuesday-WorkingHours.pcap_ISCX.csv"
+  },
+  "network_wednesday": {
+    "file": "Wednesday-workingHours.pcap_ISCX.csv",
+    "label_column": null,
+    "threat_types": [],
+    "path": "dataset\\Wednesday-workingHours.pcap_ISCX.csv"
+  },
+  "ddos_balanced": {
+    "file": "ddos_balanced/final_dataset.csv",
+    "label_column": "Label",
+    "threat_types": [
+      "ddos"
+    ],
+    "path": "dataset\\ddos_balanced\\final_dataset.csv"
+  },
+  "ddos_imbalanced": {
+    "file": "ddos_imbalanced/unbalaced_20_80_dataset.csv",
+    "label_column": "Label",
+    "threat_types": [
+      "ddos"
+    ],
+    "path": "dataset\\ddos_imbalanced\\unbalaced_20_80_dataset.csv"
+  }
+}

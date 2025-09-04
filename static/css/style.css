@@ -1,0 +1,101 @@
+/* Custom styles for Threat Detection System */
+
+.system-stats {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #dee2e6;
+    margin-bottom: 15px;
+}
+
+.system-stats h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.system-stats p {
+    color: #6c757d;
+    font-weight: 500;
+    margin: 0;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.status-online {
+    background-color: #28a745;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border-bottom: none;
+}
+
+.card-header h4,
+.card-header h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.table thead {
+    background-color: #f8f9fa;
+}
+
+.badge {
+    font-size: 0.85em;
+}
+
+/* Loading animation */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Alert customizations */
+.alert {
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .system-stats h3 {
+        font-size: 2rem;
+    }
+    
+    .card-header h4,
+    .card-header h5 {
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,122 @@
+{
+  "bot_attacks_lr": {
+    "accuracy": 0.99026,
+    "algorithm": "lr",
+    "threat_type": "bot_attacks"
+  },
+  "bot_attacks_nb": {
+    "accuracy": 0.78722,
+    "algorithm": "nb",
+    "threat_type": "bot_attacks"
+  },
+  "bot_attacks_sgd": {
+    "accuracy": 0.9902,
+    "algorithm": "sgd",
+    "threat_type": "bot_attacks"
+  },
+  "bot_attacks_rf": {
+    "accuracy": 0.99998,
+    "algorithm": "rf",
+    "threat_type": "bot_attacks"
+  },
+  "ddos_friday_lr": {
+    "accuracy": 0.98156,
+    "algorithm": "lr",
+    "threat_type": "ddos_friday"
+  },
+  "ddos_friday_nb": {
+    "accuracy": 0.9678,
+    "algorithm": "nb",
+    "threat_type": "ddos_friday"
+  },
+  "ddos_friday_sgd": {
+    "accuracy": 0.98514,
+    "algorithm": "sgd",
+    "threat_type": "ddos_friday"
+  },
+  "ddos_friday_rf": {
+    "accuracy": 0.99998,
+    "algorithm": "rf",
+    "threat_type": "ddos_friday"
+  },
+  "dos_attacks_lr": {
+    "accuracy": 0.92376,
+    "algorithm": "lr",
+    "threat_type": "dos_attacks"
+  },
+  "dos_attacks_nb": {
+    "accuracy": 0.93892,
+    "algorithm": "nb",
+    "threat_type": "dos_attacks"
+  },
+  "dos_attacks_sgd": {
+    "accuracy": 0.9347,
+    "algorithm": "sgd",
+    "threat_type": "dos_attacks"
+  },
+  "dos_attacks_rf": {
+    "accuracy": 0.9996,
+    "algorithm": "rf",
+    "threat_type": "dos_attacks"
+  },
+  "infiltration_lr": {
+    "accuracy": 0.99994,
+    "algorithm": "lr",
+    "threat_type": "infiltration"
+  },
+  "infiltration_nb": {
+    "accuracy": 0.98328,
+    "algorithm": "nb",
+    "threat_type": "infiltration"
+  },
+  "infiltration_sgd": {
+    "accuracy": 0.99988,
+    "algorithm": "sgd",
+    "threat_type": "infiltration"
+  },
+  "infiltration_rf": {
+    "accuracy": 1.0,
+    "algorithm": "rf",
+    "threat_type": "infiltration"
+  },
+  "network_baseline_lr": {
+    "accuracy": 0.7957,
+    "algorithm": "lr",
+    "threat_type": "network_baseline"
+  },
+  "network_baseline_nb": {
+    "accuracy": 0.7659,
+    "algorithm": "nb",
+    "threat_type": "network_baseline"
+  },
+  "network_baseline_sgd": {
+    "accuracy": 0.7957,
+    "algorithm": "sgd",
+    "threat_type": "network_baseline"
+  },
+  "network_baseline_rf": {
+    "accuracy": 0.9922,
+    "algorithm": "rf",
+    "threat_type": "network_baseline"
+  },
+  "port_scan_lr": {
+    "accuracy": 0.9662,
+    "algorithm": "lr",
+    "threat_type": "port_scan"
+  },
+  "port_scan_nb": {
+    "accuracy": 0.96932,
+    "algorithm": "nb",
+    "threat_type": "port_scan"
+  },
+  "port_scan_sgd": {
+    "accuracy": 0.96268,
+    "algorithm": "sgd",
+    "threat_type": "port_scan"
+  },
+  "port_scan_rf": {
+    "accuracy": 1.0,
+    "algorithm": "rf",
+    "threat_type": "port_scan"
+  }
+}

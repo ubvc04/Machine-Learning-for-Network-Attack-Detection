@@ -1,0 +1,177 @@
+{
+  "total_threat_types": 5,
+  "total_models_trained": 10,
+  "total_training_time": 0.07204055786132812,
+  "threat_results": {
+    "phishing": {
+      "sgd": {
+        "threat_type": "phishing",
+        "model_name": "sgd",
+        "model_key": "phishing_sgd",
+        "model_path": "models\\phishing_sgd_model.joblib",
+        "vectorizer_path": "models\\phishing_sgd_vectorizer.joblib",
+        "encoder_path": "models\\phishing_sgd_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.004999876022338867,
+        "feature_count": 50,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      },
+      "nb": {
+        "threat_type": "phishing",
+        "model_name": "nb",
+        "model_key": "phishing_nb",
+        "model_path": "models\\phishing_nb_model.joblib",
+        "vectorizer_path": "models\\phishing_nb_vectorizer.joblib",
+        "encoder_path": "models\\phishing_nb_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.004942655563354492,
+        "feature_count": 50,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      }
+    },
+    "malware": {
+      "sgd": {
+        "threat_type": "malware",
+        "model_name": "sgd",
+        "model_key": "malware_sgd",
+        "model_path": "models\\malware_sgd_model.joblib",
+        "vectorizer_path": "models\\malware_sgd_vectorizer.joblib",
+        "encoder_path": "models\\malware_sgd_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.004457235336303711,
+        "feature_count": 35,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      },
+      "nb": {
+        "threat_type": "malware",
+        "model_name": "nb",
+        "model_key": "malware_nb",
+        "model_path": "models\\malware_nb_model.joblib",
+        "vectorizer_path": "models\\malware_nb_vectorizer.joblib",
+        "encoder_path": "models\\malware_nb_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.005532979965209961,
+        "feature_count": 35,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      }
+    },
+    "ddos": {
+      "sgd": {
+        "threat_type": "ddos",
+        "model_name": "sgd",
+        "model_key": "ddos_sgd",
+        "model_path": "models\\ddos_sgd_model.joblib",
+        "vectorizer_path": "models\\ddos_sgd_vectorizer.joblib",
+        "encoder_path": "models\\ddos_sgd_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.005372524261474609,
+        "feature_count": 39,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      },
+      "nb": {
+        "threat_type": "ddos",
+        "model_name": "nb",
+        "model_key": "ddos_nb",
+        "model_path": "models\\ddos_nb_model.joblib",
+        "vectorizer_path": "models\\ddos_nb_vectorizer.joblib",
+        "encoder_path": "models\\ddos_nb_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.005281686782836914,
+        "feature_count": 39,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      }
+    },
+    "web_attacks": {
+      "sgd": {
+        "threat_type": "web_attacks",
+        "model_name": "sgd",
+        "model_key": "web_attacks_sgd",
+        "model_path": "models\\web_attacks_sgd_model.joblib",
+        "vectorizer_path": "models\\web_attacks_sgd_vectorizer.joblib",
+        "encoder_path": "models\\web_attacks_sgd_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.004998683929443359,
+        "feature_count": 33,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      },
+      "nb": {
+        "threat_type": "web_attacks",
+        "model_name": "nb",
+        "model_key": "web_attacks_nb",
+        "model_path": "models\\web_attacks_nb_model.joblib",
+        "vectorizer_path": "models\\web_attacks_nb_vectorizer.joblib",
+        "encoder_path": "models\\web_attacks_nb_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.005314826965332031,
+        "feature_count": 33,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      }
+    },
+    "brute_force": {
+      "sgd": {
+        "threat_type": "brute_force",
+        "model_name": "sgd",
+        "model_key": "brute_force_sgd",
+        "model_path": "models\\brute_force_sgd_model.joblib",
+        "vectorizer_path": "models\\brute_force_sgd_vectorizer.joblib",
+        "encoder_path": "models\\brute_force_sgd_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.005301952362060547,
+        "feature_count": 32,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      },
+      "nb": {
+        "threat_type": "brute_force",
+        "model_name": "nb",
+        "model_key": "brute_force_nb",
+        "model_path": "models\\brute_force_nb_model.joblib",
+        "vectorizer_path": "models\\brute_force_nb_vectorizer.joblib",
+        "encoder_path": "models\\brute_force_nb_encoder.joblib",
+        "accuracy": 1.0,
+        "training_time": 0.004553318023681641,
+        "feature_count": 32,
+        "training_samples": 12,
+        "classes": [
+          "benign",
+          "threat"
+        ]
+      }
+    }
+  }
+}

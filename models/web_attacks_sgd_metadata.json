@@ -1,0 +1,16 @@
+{
+  "threat_type": "web_attacks",
+  "model_name": "sgd",
+  "model_key": "web_attacks_sgd",
+  "model_path": "models\\web_attacks_sgd_model.joblib",
+  "vectorizer_path": "models\\web_attacks_sgd_vectorizer.joblib",
+  "encoder_path": "models\\web_attacks_sgd_encoder.joblib",
+  "accuracy": 1.0,
+  "training_time": 0.004998683929443359,
+  "feature_count": 33,
+  "training_samples": 12,
+  "classes": [
+    "benign",
+    "threat"
+  ]
+}

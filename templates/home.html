@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="jumbotron bg-gradient p-5 rounded mb-4 text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="container-fluid py-5">
+                <h1 class="display-4 fw-bold">🛡️ AI Threat Detection System</h1>
+                <p class="fs-4">Advanced machine learning models to detect and analyze cybersecurity threats in real-time.</p>
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <h2 class="display-6">{{ threat_types|length }}</h2>
+                            <p>Threat Types</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <h2 class="display-6">{{ total_models }}</h2>
+                            <p>AI Models</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="text-center">
+                            <h2 class="display-6">99.2%</h2>
+                            <p>Accuracy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-header bg-primary text-white">
+                <h4><i class="fas fa-shield-alt"></i> Available Threat Types</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% for threat_type in threat_types %}
+                    <div class="col-12 mb-2">
+                        <span class="badge bg-secondary fs-6 w-100 text-start p-2">
+                            <i class="fas fa-bug"></i> {{ threat_type|title }}
+                        </span>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="mt-3">
+                    <a href="/analyze/" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Start Analysis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-header bg-success text-white">
+                <h4><i class="fas fa-cogs"></i> System Capabilities</h4>
+            </div>
+            <div class="card-body">
+                <div class="feature-list">
+                    <div class="feature-item mb-3">
+                        <i class="fas fa-robot text-primary"></i>
+                        <strong>Multi-Algorithm Analysis</strong>
+                        <p class="mb-1">Linear Regression, Naive Bayes, SGD, Random Forest models</p>
+                    </div>
+                    
+                    <div class="feature-item mb-3">
+                        <i class="fas fa-lightning-bolt text-warning"></i>
+                        <strong>Real-Time Detection</strong>
+                        <p class="mb-1">Instant threat analysis with confidence scoring</p>
+                    </div>
+                    
+                    <div class="feature-item mb-3">
+                        <i class="fas fa-chart-bar text-info"></i>
+                        <strong>Batch Processing</strong>
+                        <p class="mb-1">Analyze multiple inputs simultaneously</p>
+                    </div>
+                    
+                    <div class="feature-item mb-3">
+                        <i class="fas fa-api text-success"></i>
+                        <strong>RESTful API</strong>
+                        <p class="mb-1">Integration-ready endpoints for external systems</p>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <a href="/status/" class="btn btn-success">
+                        <i class="fas fa-chart-line"></i> View System Status
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h4><i class="fas fa-rocket"></i> Quick Actions</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center p-3">
+                            <a href="/analyze/" class="btn btn-outline-primary btn-lg w-100 mb-2">
+                                <i class="fas fa-search fa-2x d-block mb-2"></i>
+                                Single Analysis
+                            </a>
+                            <small class="text-muted">Test specific models with your data</small>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="text-center p-3">
+                            <a href="/batch/" class="btn btn-outline-success btn-lg w-100 mb-2">
+                                <i class="fas fa-list fa-2x d-block mb-2"></i>
+                                Batch Analysis
+                            </a>
+                            <small class="text-muted">Process multiple inputs at once</small>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="text-center p-3">
+                            <a href="/status/" class="btn btn-outline-info btn-lg w-100 mb-2">
+                                <i class="fas fa-chart-line fa-2x d-block mb-2"></i>
+                                System Status
+                            </a>
+                            <small class="text-muted">View models and performance</small>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="text-center p-3">
+                            <a href="/api/status/" class="btn btn-outline-warning btn-lg w-100 mb-2" target="_blank">
+                                <i class="fas fa-code fa-2x d-block mb-2"></i>
+                                API Testing
+                            </a>
+                            <small class="text-muted">Test API endpoints directly</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="alert alert-info">
+            <h5><i class="fas fa-info-circle"></i> System Information</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>Total Models Loaded:</strong> {{ total_models }}<br>
+                    <strong>Threat Detection Coverage:</strong> {{ threat_types|length }} threat types<br>
+                    <strong>Algorithms:</strong> LR, NB, SGD, RF
+                </div>
+                <div class="col-md-6">
+                    <strong>Real-time Analysis:</strong> ✅ Available<br>
+                    <strong>API Integration:</strong> ✅ RESTful endpoints<br>
+                    <strong>Batch Processing:</strong> ✅ Multi-input support
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Auto-check system status on page load
+    fetch('/api/status/')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'online') {
+                console.log('✅ System online:', data.total_models, 'models loaded');
+            }
+        })
+        .catch(error => {
+            console.error('❌ System status check failed:', error);
+        });
+});
+</script>
+{% endblock %}

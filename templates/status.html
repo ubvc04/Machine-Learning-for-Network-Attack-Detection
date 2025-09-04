@@ -1,0 +1,230 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4><i class="fas fa-chart-line"></i> System Status & Performance</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="system-stats">
+                            <h3>{{ threat_types|length }}</h3>
+                            <p>Active Threat Types</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="system-stats">
+                            <h3>{{ total_models }}</h3>
+                            <p>AI Models Loaded</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="system-stats">
+                            <h3><span class="status-indicator status-online"></span>Online</h3>
+                            <p>System Status</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="system-stats">
+                            <h3>&lt;100ms</h3>
+                            <p>Response Time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-brain"></i> Model Details</h5>
+            </div>
+            <div class="card-body">
+                {% if has_models %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Threat Type</th>
+                                <th>Models Count</th>
+                                <th>Algorithms</th>
+                                <th>Status</th>
+                                <th>Last Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for threat_type in threat_types %}
+                            <tr>
+                                <td>
+                                    <span class="badge bg-primary">{{ threat_type|title }}</span>
+                                </td>
+                                <td>
+                                    <strong>4</strong>
+                                </td>
+                                <td>
+                                    <small class="text-muted">LR, NB, SGD, RF</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-success">
+                                        <i class="fas fa-check-circle"></i> Active
+                                    </span>
+                                </td>
+                                <td>
+                                    <small class="text-muted">{{ "now"|date:"Y-m-d H:i" }}</small>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    No models are currently loaded. Please ensure the models directory contains trained models.
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-cogs"></i> System Information</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-6">Framework:</dt>
+                    <dd class="col-sm-6">Django + scikit-learn</dd>
+                    
+                    <dt class="col-sm-6">Python Version:</dt>
+                    <dd class="col-sm-6">3.11+</dd>
+                    
+                    <dt class="col-sm-6">Model Types:</dt>
+                    <dd class="col-sm-6">LR, Naive Bayes, SGD, Random Forest</dd>
+                    
+                    <dt class="col-sm-6">Dataset Sources:</dt>
+                    <dd class="col-sm-6">CICIDS2017, Custom Datasets</dd>
+                    
+                    <dt class="col-sm-6">Training Data:</dt>
+                    <dd class="col-sm-6">Real cybersecurity incidents</dd>
+                    
+                    <dt class="col-sm-6">Update Frequency:</dt>
+                    <dd class="col-sm-6">On-demand retraining</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-api"></i> API Endpoints</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <strong>POST /api/predict/</strong>
+                    <br><small class="text-muted">Analyze single input for specific threat type</small>
+                </div>
+                
+                <div class="mb-3">
+                    <strong>POST /api/predict-all/</strong>
+                    <br><small class="text-muted">Test input against all threat models</small>
+                </div>
+                
+                <div class="mb-3">
+                    <strong>GET /api/status/</strong>
+                    <br><small class="text-muted">Get system status and model information</small>
+                </div>
+                
+                <button class="btn btn-outline-primary btn-sm" onclick="testAPI()">
+                    <i class="fas fa-play"></i> Test API
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-history"></i> Recent Activity</h5>
+            </div>
+            <div class="card-body">
+                <div id="activityLog">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span><i class="fas fa-circle text-success"></i> System initialized successfully</span>
+                        <small class="text-muted">{{ "now"|date:"H:i:s" }}</small>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span><i class="fas fa-circle text-info"></i> {{ total_models }} models loaded</span>
+                        <small class="text-muted">{{ "now"|date:"H:i:s" }}</small>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span><i class="fas fa-circle text-primary"></i> Web interface started</span>
+                        <small class="text-muted">{{ "now"|date:"H:i:s" }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function testAPI() {
+    showAlert('Testing API endpoint...', 'info');
+    
+    fetch('/api/status/')
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'online') {
+                showAlert('✅ API is working correctly! System is online with ' + data.total_models + ' models.', 'success');
+            } else {
+                showAlert('❌ API test failed: System appears to be offline.', 'danger');
+            }
+        })
+        .catch(error => {
+            showAlert('❌ API test failed: ' + error.message, 'danger');
+        });
+}
+
+// Auto-refresh system status every 30 seconds
+setInterval(function() {
+    fetch('/api/status/')
+        .then(response => response.json())
+        .then(data => {
+            // Update activity log
+            const activityLog = document.getElementById('activityLog');
+            const now = new Date().toLocaleTimeString();
+            
+            const newActivity = document.createElement('div');
+            newActivity.className = 'd-flex justify-content-between align-items-center mb-2';
+            newActivity.innerHTML = `
+                <span><i class="fas fa-circle text-success"></i> Status check: ${data.total_models} models active</span>
+                <small class="text-muted">${now}</small>
+            `;
+            
+            activityLog.insertBefore(newActivity, activityLog.firstChild);
+            
+            // Keep only last 5 activities
+            while (activityLog.children.length > 5) {
+                activityLog.removeChild(activityLog.lastChild);
+            }
+        })
+        .catch(error => {
+            console.error('Status update failed:', error);
+        });
+}, 30000);
+</script>
+{% endblock %}

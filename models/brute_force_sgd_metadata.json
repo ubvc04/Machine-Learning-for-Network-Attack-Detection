@@ -1,0 +1,16 @@
+{
+  "threat_type": "brute_force",
+  "model_name": "sgd",
+  "model_key": "brute_force_sgd",
+  "model_path": "models\\brute_force_sgd_model.joblib",
+  "vectorizer_path": "models\\brute_force_sgd_vectorizer.joblib",
+  "encoder_path": "models\\brute_force_sgd_encoder.joblib",
+  "accuracy": 1.0,
+  "training_time": 0.005301952362060547,
+  "feature_count": 32,
+  "training_samples": 12,
+  "classes": [
+    "benign",
+    "threat"
+  ]
+}

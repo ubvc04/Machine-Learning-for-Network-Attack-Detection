@@ -1,0 +1,1397 @@
+{
+  "total_models_tested": 15,
+  "successful_models": 15,
+  "testing_time": 0.8465249538421631,
+  "detailed_results": {
+    "phishing": {
+      "lr": {
+        "success": true,
+        "accuracy": 0.8333333333333334,
+        "correct_predictions": 10,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "Click here to verify your paypal account immediate...",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.5227937947309935,
+            "correct": true
+          },
+          {
+            "input": "Your account has been suspended, login now",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.7183503832223757,
+            "correct": true
+          },
+          {
+            "input": "URGENT: Update your password or lose access",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.5474682781683773,
+            "correct": false
+          },
+          {
+            "input": "Verify your amazon account security",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.5227937947309935,
+            "correct": true
+          },
+          {
+            "input": "Your bank account needs verification",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.5227937947309935,
+            "correct": true
+          },
+          {
+            "input": "Click here to claim your prize",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.5474682781683773,
+            "correct": false
+          },
+          {
+            "input": "Dear customer, thank you for your business",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.777844520707488,
+            "correct": true
+          },
+          {
+            "input": "Meeting scheduled for tomorrow at 3pm",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.816948706280827,
+            "correct": true
+          },
+          {
+            "input": "Please review the attached document",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6158881844022532,
+            "correct": true
+          },
+          {
+            "input": "Happy birthday! Hope you have a great day",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6568411652096526,
+            "correct": true
+          },
+          {
+            "input": "Thank you for your purchase",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6730028063797117,
+            "correct": true
+          },
+          {
+            "input": "Weekly team meeting notes",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6645800487931786,
+            "correct": true
+          }
+        ]
+      },
+      "nb": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "Click here to verify your paypal account immediate...",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9996146369338507,
+            "correct": true
+          },
+          {
+            "input": "Your account has been suspended, login now",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9962899726343428,
+            "correct": true
+          },
+          {
+            "input": "URGENT: Update your password or lose access",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9825468640458608,
+            "correct": true
+          },
+          {
+            "input": "Verify your amazon account security",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9910428428256998,
+            "correct": true
+          },
+          {
+            "input": "Your bank account needs verification",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9866241689490782,
+            "correct": true
+          },
+          {
+            "input": "Click here to claim your prize",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9947643976464057,
+            "correct": true
+          },
+          {
+            "input": "Dear customer, thank you for your business",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9956482556270192,
+            "correct": true
+          },
+          {
+            "input": "Meeting scheduled for tomorrow at 3pm",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9960884425706036,
+            "correct": true
+          },
+          {
+            "input": "Please review the attached document",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9758982401242636,
+            "correct": true
+          },
+          {
+            "input": "Happy birthday! Hope you have a great day",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9941441166678808,
+            "correct": true
+          },
+          {
+            "input": "Thank you for your purchase",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9811532445467888,
+            "correct": true
+          },
+          {
+            "input": "Weekly team meeting notes",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9666353338683371,
+            "correct": true
+          }
+        ]
+      },
+      "sgd": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "Click here to verify your paypal account immediate...",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Your account has been suspended, login now",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "URGENT: Update your password or lose access",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Verify your amazon account security",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Your bank account needs verification",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Click here to claim your prize",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Dear customer, thank you for your business",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Meeting scheduled for tomorrow at 3pm",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Please review the attached document",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Happy birthday! Hope you have a great day",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Thank you for your purchase",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "Weekly team meeting notes",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          }
+        ]
+      }
+    },
+    "malware": {
+      "lr": {
+        "success": true,
+        "accuracy": 0.5833333333333334,
+        "correct_predictions": 7,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "malicious executable detected in system",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6596718573535839,
+            "correct": false
+          },
+          {
+            "input": "suspicious behavior pattern identified",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.6512903893553339,
+            "correct": true
+          },
+          {
+            "input": "trojan horse activity observed",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6035672756972233,
+            "correct": false
+          },
+          {
+            "input": "virus signature match found",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6035672756972233,
+            "correct": false
+          },
+          {
+            "input": "malware payload execution detected",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6035672756972233,
+            "correct": false
+          },
+          {
+            "input": "ransomware encryption activity",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6035672756972233,
+            "correct": false
+          },
+          {
+            "input": "normal system operation",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7585588140985091,
+            "correct": true
+          },
+          {
+            "input": "regular file access",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7585588140985091,
+            "correct": true
+          },
+          {
+            "input": "standard application behavior",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.51799108119514,
+            "correct": true
+          },
+          {
+            "input": "legitimate user activity",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6035672756972233,
+            "correct": true
+          },
+          {
+            "input": "system update process",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6596718573535839,
+            "correct": true
+          },
+          {
+            "input": "normal network communication",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6596718573535839,
+            "correct": true
+          }
+        ]
+      },
+      "nb": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "malicious executable detected in system",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9034675585658266,
+            "correct": true
+          },
+          {
+            "input": "suspicious behavior pattern identified",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8389531327174706,
+            "correct": true
+          },
+          {
+            "input": "trojan horse activity observed",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8865448918993785,
+            "correct": true
+          },
+          {
+            "input": "virus signature match found",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9124247027195609,
+            "correct": true
+          },
+          {
+            "input": "malware payload execution detected",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9398609020184021,
+            "correct": true
+          },
+          {
+            "input": "ransomware encryption activity",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8130608633757517,
+            "correct": true
+          },
+          {
+            "input": "normal system operation",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9254604243353997,
+            "correct": true
+          },
+          {
+            "input": "regular file access",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9169170979106648,
+            "correct": true
+          },
+          {
+            "input": "standard application behavior",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8465807152359921,
+            "correct": true
+          },
+          {
+            "input": "legitimate user activity",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7862664936882167,
+            "correct": true
+          },
+          {
+            "input": "system update process",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8922080207015738,
+            "correct": true
+          },
+          {
+            "input": "normal network communication",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9430337583822006,
+            "correct": true
+          }
+        ]
+      },
+      "sgd": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "malicious executable detected in system",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "suspicious behavior pattern identified",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "trojan horse activity observed",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "virus signature match found",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "malware payload execution detected",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "ransomware encryption activity",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "normal system operation",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "regular file access",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "standard application behavior",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "legitimate user activity",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "system update process",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "normal network communication",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          }
+        ]
+      }
+    },
+    "ddos": {
+      "lr": {
+        "success": true,
+        "accuracy": 0.5833333333333334,
+        "correct_predictions": 7,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "high traffic volume detected unusual",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.7063969498385152,
+            "correct": false
+          },
+          {
+            "input": "multiple connection attempts same source",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.6177778449163153,
+            "correct": true
+          },
+          {
+            "input": "bandwidth utilization spike abnormal",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6603219908655718,
+            "correct": false
+          },
+          {
+            "input": "flood attack pattern detected",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6603219908655718,
+            "correct": false
+          },
+          {
+            "input": "distributed attack multiple sources",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.5703086770526099,
+            "correct": false
+          },
+          {
+            "input": "service unavailable due overload",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6603219908655718,
+            "correct": false
+          },
+          {
+            "input": "normal network traffic flow",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7865723904120945,
+            "correct": true
+          },
+          {
+            "input": "regular user activity",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7865723904120945,
+            "correct": true
+          },
+          {
+            "input": "standard web browsing",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6603219908655718,
+            "correct": true
+          },
+          {
+            "input": "legitimate file download",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6603219908655718,
+            "correct": true
+          },
+          {
+            "input": "normal database query",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7063969498385152,
+            "correct": true
+          },
+          {
+            "input": "regular api requests",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7063969498385152,
+            "correct": true
+          }
+        ]
+      },
+      "nb": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "high traffic volume detected unusual",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9313959258624458,
+            "correct": true
+          },
+          {
+            "input": "multiple connection attempts same source",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9644795387528207,
+            "correct": true
+          },
+          {
+            "input": "bandwidth utilization spike abnormal",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9102598376395376,
+            "correct": true
+          },
+          {
+            "input": "flood attack pattern detected",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9580226768422183,
+            "correct": true
+          },
+          {
+            "input": "distributed attack multiple sources",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9580226768422183,
+            "correct": true
+          },
+          {
+            "input": "service unavailable due overload",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9102598376395376,
+            "correct": true
+          },
+          {
+            "input": "normal network traffic flow",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9498213218960524,
+            "correct": true
+          },
+          {
+            "input": "regular user activity",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9441037846658406,
+            "correct": true
+          },
+          {
+            "input": "standard web browsing",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9184352572120367,
+            "correct": true
+          },
+          {
+            "input": "legitimate file download",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9184352572120367,
+            "correct": true
+          },
+          {
+            "input": "normal database query",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9441037846658406,
+            "correct": true
+          },
+          {
+            "input": "regular api requests",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9441037846658406,
+            "correct": true
+          }
+        ]
+      },
+      "sgd": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "high traffic volume detected unusual",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "multiple connection attempts same source",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "bandwidth utilization spike abnormal",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "flood attack pattern detected",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "distributed attack multiple sources",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "service unavailable due overload",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "normal network traffic flow",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "regular user activity",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "standard web browsing",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "legitimate file download",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "normal database query",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "regular api requests",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          }
+        ]
+      }
+    },
+    "web_attacks": {
+      "lr": {
+        "success": true,
+        "accuracy": 0.5833333333333334,
+        "correct_predictions": 7,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "SELECT * FROM users WHERE password",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6241730833908923,
+            "correct": false
+          },
+          {
+            "input": "<script>alert('xss attack')</script>",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.7410421700010184,
+            "correct": true
+          },
+          {
+            "input": "../../../etc/passwd",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6241730833908923,
+            "correct": false
+          },
+          {
+            "input": "admin' OR '1'='1",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6241730833908923,
+            "correct": false
+          },
+          {
+            "input": "javascript:alert(document.cookie)",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.561565284061259,
+            "correct": false
+          },
+          {
+            "input": "UNION SELECT username password FROM",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.6241730833908923,
+            "correct": false
+          },
+          {
+            "input": "normal web request",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7686450835698664,
+            "correct": true
+          },
+          {
+            "input": "regular http traffic",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7686450835698664,
+            "correct": true
+          },
+          {
+            "input": "standard form submission",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6241730833908923,
+            "correct": true
+          },
+          {
+            "input": "legitimate search query",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6241730833908923,
+            "correct": true
+          },
+          {
+            "input": "normal page navigation",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.6766513046630517,
+            "correct": true
+          },
+          {
+            "input": "regular ajax request",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7250299092465344,
+            "correct": true
+          }
+        ]
+      },
+      "nb": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "SELECT * FROM users WHERE password",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9854355620391797,
+            "correct": true
+          },
+          {
+            "input": "<script>alert('xss attack')</script>",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9854355620391797,
+            "correct": true
+          },
+          {
+            "input": "../../../etc/passwd",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.7683899556868536,
+            "correct": true
+          },
+          {
+            "input": "admin' OR '1'='1",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.7683899556868536,
+            "correct": true
+          },
+          {
+            "input": "javascript:alert(document.cookie)",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9428888801651482,
+            "correct": true
+          },
+          {
+            "input": "UNION SELECT username password FROM",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9854355620391797,
+            "correct": true
+          },
+          {
+            "input": "normal web request",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9597263171125585,
+            "correct": true
+          },
+          {
+            "input": "regular http traffic",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9407819403466805,
+            "correct": true
+          },
+          {
+            "input": "standard form submission",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9137273596998922,
+            "correct": true
+          },
+          {
+            "input": "legitimate search query",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9137273596998922,
+            "correct": true
+          },
+          {
+            "input": "normal page navigation",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9407819403466805,
+            "correct": true
+          },
+          {
+            "input": "regular ajax request",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9597263171125585,
+            "correct": true
+          }
+        ]
+      },
+      "sgd": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "SELECT * FROM users WHERE password",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "<script>alert('xss attack')</script>",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "../../../etc/passwd",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "admin' OR '1'='1",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "javascript:alert(document.cookie)",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "UNION SELECT username password FROM",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "normal web request",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "regular http traffic",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "standard form submission",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "legitimate search query",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "normal page navigation",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "regular ajax request",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          }
+        ]
+      }
+    },
+    "brute_force": {
+      "lr": {
+        "success": true,
+        "accuracy": 0.5833333333333334,
+        "correct_predictions": 7,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "multiple login attempts admin admin123",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.5913659631894415,
+            "correct": true
+          },
+          {
+            "input": "password brute force attack detected",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.740542102000834,
+            "correct": false
+          },
+          {
+            "input": "repeated authentication failures",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.7757870226545537,
+            "correct": false
+          },
+          {
+            "input": "dictionary attack in progress",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.740542102000834,
+            "correct": false
+          },
+          {
+            "input": "credential stuffing attempt",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.740542102000834,
+            "correct": false
+          },
+          {
+            "input": "automated login bot detected",
+            "expected": "threat",
+            "predicted": "benign",
+            "confidence": 0.7018806103903388,
+            "correct": false
+          },
+          {
+            "input": "successful user login",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7838911539199559,
+            "correct": true
+          },
+          {
+            "input": "normal authentication",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8074888587354372,
+            "correct": true
+          },
+          {
+            "input": "legitimate password reset",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.740542102000834,
+            "correct": true
+          },
+          {
+            "input": "standard user session",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7798680145197308,
+            "correct": true
+          },
+          {
+            "input": "regular account access",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.740542102000834,
+            "correct": true
+          },
+          {
+            "input": "normal login process",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7405372655221116,
+            "correct": true
+          }
+        ]
+      },
+      "nb": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "multiple login attempts admin admin123",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8913815963935299,
+            "correct": true
+          },
+          {
+            "input": "password brute force attack detected",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9486250039196006,
+            "correct": true
+          },
+          {
+            "input": "repeated authentication failures",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.7282377919320592,
+            "correct": true
+          },
+          {
+            "input": "dictionary attack in progress",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.9336357744653273,
+            "correct": true
+          },
+          {
+            "input": "credential stuffing attempt",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.842751842751842,
+            "correct": true
+          },
+          {
+            "input": "automated login bot detected",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8755317855840529,
+            "correct": true
+          },
+          {
+            "input": "successful user login",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8995607613469987,
+            "correct": true
+          },
+          {
+            "input": "normal authentication",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.7966804979253114,
+            "correct": true
+          },
+          {
+            "input": "legitimate password reset",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8565453785027182,
+            "correct": true
+          },
+          {
+            "input": "standard user session",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9471250192693077,
+            "correct": true
+          },
+          {
+            "input": "regular account access",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.9227303446722244,
+            "correct": true
+          },
+          {
+            "input": "normal login process",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8995607613469987,
+            "correct": true
+          }
+        ]
+      },
+      "sgd": {
+        "success": true,
+        "accuracy": 1.0,
+        "correct_predictions": 12,
+        "total_predictions": 12,
+        "results": [
+          {
+            "input": "multiple login attempts admin admin123",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "password brute force attack detected",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "repeated authentication failures",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "dictionary attack in progress",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "credential stuffing attempt",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "automated login bot detected",
+            "expected": "threat",
+            "predicted": "threat",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "successful user login",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "normal authentication",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "legitimate password reset",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "standard user session",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "regular account access",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          },
+          {
+            "input": "normal login process",
+            "expected": "benign",
+            "predicted": "benign",
+            "confidence": 0.8,
+            "correct": true
+          }
+        ]
+      }
+    }
+  }
+}
